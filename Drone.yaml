@@ -1,0 +1,43 @@
+#Drone CI File!
+
+kind: pipeline
+type: kubernetes
+name: default
+
+steps:
+
+- name: build
+  image: python:3.10.0b1-slim-buster
+  commands:
+    - "pip3 install -r requirements.txt"
+    - "apt update"
+    - "apt install -y nodejs npm"
+    - "npm install -g dogescript"
+    - "dogescript dogescript/much-js.djs > doge-compiled.js"
+
+- name: test
+  image: python:3.10.0b1-slim-buster
+  commands:
+    - "pip3 install -r requirements.txt"
+    - "python -m unittest"
+
+- name: integration test
+  image: python:3.10.0b1-slim-buster
+  commands:
+    - "pip3 install -r requirements.txt"
+    - "nohup python3 app.py &"
+    - "apt-get update && apt-get install -y curl"
+    - "curl --silent --show-error --fail  localhost:5000"
+    - "curl --silent --show-error --fail localhost:5000/api/v1/cheems"
+    - "curl --silent --show-error --fail  localhost:5000/api/v1/soad"
+
+- name: publish
+  image: plugins/docker
+  settings:
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    repo: dhpup/testci
+    auto_tag: true
+    auto_tag_suffix: 1.0.10
