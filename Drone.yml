@@ -40,4 +40,3 @@ steps:
       from_secret: docker_password
     repo: dhpup/testci
     auto_tag: true
-    auto_tag_suffix: 1.0.12
