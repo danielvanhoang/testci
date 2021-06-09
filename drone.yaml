@@ -1,7 +1,6 @@
-#Drone CI File!
+#Drone CI File!!!
 
 kind: pipeline
-type: kubernetes
 name: default
 
 steps:
@@ -40,4 +39,4 @@ steps:
       from_secret: docker_password
     repo: dhpup/testci
     auto_tag: true
-    auto_tag_suffix: 1.0.12
+    auto_tag_suffix: 1.0.10
