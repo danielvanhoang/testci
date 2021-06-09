@@ -40,7 +40,4 @@ steps:
       from_secret: docker_password
     repo: dhpup/testci
     auto_tag: true
-<<<<<<< HEAD:Drone.yaml
     auto_tag_suffix: 1.0.12
-=======
->>>>>>> b7c13b0953dfcd162938373b2bcb0be13ff214ff:Drone.yml
