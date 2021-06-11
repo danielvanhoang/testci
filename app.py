@@ -1,3 +1,14 @@
+import beeline
+beeline.init(
+    # Get this via https://ui.honeycomb.io/account after signing up for Honeycomb
+    writekey='1252c1ce92b00ad574131fa6e873366d',
+    # The name of your app is a good choice to start with
+    dataset='cheems-app',
+    service_name='cheems-app',
+    # debug=True, # defaults to False. if True, data doesn't get sent to Honeycomb
+)
+
+
 from flask import Flask, jsonify
 from random import seed
 from random import randint
