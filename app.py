@@ -5,7 +5,7 @@ beeline.init(
     # The name of your app is a good choice to start with
     dataset='cheems-app',
     service_name='cheems-app',
-    # debug=True, # defaults to False. if True, data doesn't get sent to Honeycomb
+    debug=False, # defaults to False. if True, data doesn't get sent to Honeycomb
 )
 
 
