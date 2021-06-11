@@ -9,8 +9,8 @@ steps:
   image: python:3.10.0b1-slim-buster
   commands:
     - "pip3 install -r requirements.txt"
-#    - "pip install -U setuptools"
-#    - "pip install honeycomb-beeline"
+    - "pip install honeycomb-beeline"
+    - "pip install -U setuptools"
     - "apt update"
     - "apt install -y nodejs npm"
     - "npm install -g dogescript"
@@ -20,16 +20,16 @@ steps:
   image: python:3.10.0b1-slim-buster
   commands:
     - "pip3 install -r requirements.txt"
-#    - "pip install -U setuptools"
-#    - "pip install honeycomb-beeline"
+    - "pip install -U setuptools"
+    - "pip install honeycomb-beeline"
     - "python -m unittest"
 
 - name: integration test
   image: python:3.10.0b1-slim-buster
   commands:
     - "pip3 install -r requirements.txt"
-#    - "pip install -U setuptools"
-#    - "pip install honeycomb-beeline"
+    - "pip install -U setuptools"
+    - "pip install honeycomb-beeline"
     - "nohup python3 app.py &"
     - "apt-get update && apt-get install -y curl"
     - "curl --silent --show-error --fail  localhost:5000"
