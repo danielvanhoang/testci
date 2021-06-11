@@ -1,20 +1,18 @@
+from flask import Flask, jsonify
+from random import seed
+from random import randint
+import os
+from flask import render_template, redirect, url_for
 import beeline
+
 beeline.init(
     # Get this via https://ui.honeycomb.io/account after signing up for Honeycomb
     writekey='1252c1ce92b00ad574131fa6e873366d',
     # The name of your app is a good choice to start with
     dataset='cheems-app',
     service_name='cheems-app',
-    debug=False, # defaults to False. if True, data doesn't get sent to Honeycomb
+    #debug=False, # defaults to False. if True, data doesn't get sent to Honeycomb
 )
-
-
-from flask import Flask, jsonify
-from random import seed
-from random import randint
-import os
-from flask import render_template, redirect, url_for
-
 
 seed(1)
 app = Flask(__name__)
