@@ -9,7 +9,7 @@ beeline.init(
     writekey='1252c1ce92b00ad574131fa6e873366d',
     dataset='cheems-app',
     service_name='cheems-app',
-    debug=True, # defaults to False. if True, data doesn't get sent to Honeycomb
+    debug=False, # defaults to False. if True, data doesn't get sent to Honeycomb
 )
 
 seed(1)
